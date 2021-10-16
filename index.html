@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="EN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cybersecurity: The Game</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css?v=2">
+</head>
+
+<body>
+    <div class="container">
+    	<!--header-->
+        <div class="row">
+        	<div class="col-md-2">
+        		<div class="cs-icon"></div>
+        	</div>
+        	<div class="col-md-10">
+            	<h1>Cybersecurity</h1>
+            </div>
+        </div>
+        <!--end header-->
+        <div class="row">
+        	<!--players-->
+            <div class="col-md-5 player-col">
+                <h2>Players</h2>
+                <button id="add-player">add player</button>
+                <ol id="players">
+                </ol>
+            </div>
+            <!--end players-->
+            <!--timer-->
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12">
+                    	<!--timer display-->
+                        <div class="timer-holder">
+                            <div id="time-display">00:00</div>
+                            <!--timer chooser-->
+                            <label for="time">Choose game length:</label>
+                            <select name="time" id="time">
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <!--end timer chooser-->
+                            <button id='timer-start'>Start</button>
+                        </div>
+                    </div>
+                    <!--end timer-->
+                    <!--die trigger-->
+                    <div class="col-md-12 roller-area">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleCard">
+                            Roll the die
+                        </button>
+                    </div>
+                    <!--end die trigger-->                 
+                </div>
+            </div>
+        </div>
+        <div class="row main-content">
+    	   <!--game details-->
+            <div class="col-md-4 offset-md-4">
+                <button class="btn-cs" type="button" data-bs-toggle="collapse" data-bs-target="#chooser-panel" aria-expanded="false" aria-controls="chooser-panel">
+                    Set Game Details
+                </button>
+            </div>
+            <div class="col-md-12 collapse" id="chooser-panel">
+                <div class="chooser" id="parameters">
+                    <strong>Framework:</strong>
+                    <div>
+                        <input type="checkbox" id="nist" name="framework" value="nist">
+                        <label for="coding">NIST</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tle" name="framework" value="tle">
+                        <label for="tle">TLE</label>
+                    </div>
+                </div>
+            </div>
+    	</div>
+    </div>
+    
+    <!--land of modals-->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleCard" tabindex="-1" aria-labelledby="exampleCard" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    What can you do today to improve your school system's cybersecurity posture?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--leaving the land of modals-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
