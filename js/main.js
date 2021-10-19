@@ -105,12 +105,7 @@ function startTimer(duration, display, state) {
 //MODAL
 
 //http://multisitetwo.local/cyber/wp-json/wp/v2/card
-var cardContent = ['What can you do today to improve your school system\'s cybersecurity posture?', 
-'What is one cybersecurity practice that is most important to you?', 
-'What is one cybersecurity skill that has been discussed so far that your school system does well?', 
-'What action could you implement first to increase the effectiveness your cybersecurity incident response plan?',
-'Have you ever dealt with a serious cybersecurity incident? What surprised you the most?',
-'Do you feel you step out of your comfort zone in order to add value to others?'];
+//http://multisitetwo.local/cyber/wp-json/wp/v2/framework/
 var exampleModal = document.getElementById('exampleCard')
 exampleModal.addEventListener('show.bs.modal', function (event) {
   // Button that triggered the modal
@@ -135,7 +130,8 @@ var cardContentJson = [];
         dataType: 'json',
         success: function(data) {         
             $.each(data, function(index, item) {
-              //console.log(item.title.rendered)
+              console.log(item)
+
               cardContentJson.push(item.title.rendered)
             }); //each          
           } //success

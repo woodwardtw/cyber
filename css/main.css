@@ -1,7 +1,7 @@
 /*@import url('https://fonts.googleapis.com/css2?family='Red Hat Display'&display=swap');
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&family=Orbitron&display=swap');
 
 :root {
   --blue: #011347; /*#00313c  1, 19, 71*/
@@ -31,15 +31,12 @@ h1 {
 }
 
 .cs-icon{
-  height:  100px;
-  width:  100px;
-  margin-right:  20px;
-  background-color: var(--blue);
-  background-image: url('../imgs/cyber-security.svg');
+ 
+/*  background-color: var(--blue);
+*/  background-image: url('../imgs/cyber-security.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  border-radius:  50%;
-  display: inline-block;
+  background-position: center left;
 }
 
 .container {
@@ -54,9 +51,18 @@ h1 {
   text-align: right;
 }
 
+.player-col {
+  border-top:  3px solid var(--blue);
+  background-color: #efefef;
+  margin-top:  30px;
+  padding: 20px 10px;
+}
+
 .player {
   padding: 5px 10px;
   margin-right: 10px;
+  background-color: #fff;
+  margin-top:  10px;
 }
 
 .name:hover {
@@ -64,7 +70,7 @@ h1 {
 }
 
 .name {
-  border-bottom: var(--light-blue) 2px dashed;
+  border-bottom: var(--blue) 2px dashed;
    width: 180px;
   display: inline-block;
   font-size: 1.2em;
@@ -117,6 +123,7 @@ button {
 
 #time-display {
   font-size: 2em;
+  font-family: 'orbitron', sans-serif;
 }
 
 /*modal*/
