@@ -113,7 +113,7 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
   
   var modalBodyInput = exampleModal.querySelector('.modal-body')
 
-  modalBodyInput.textContent = cardContentJson[Math.floor(Math.random()*cardContentJson.length)];
+  modalBodyInput.innerHTML = cardContentJson[Math.floor(Math.random()*cardContentJson.length)];
 })    
 
 
@@ -131,8 +131,9 @@ var cardContentJson = [];
         success: function(data) {         
             $.each(data, function(index, item) {
               console.log(item)
+              console.log(item.acf.types.name)
 
-              cardContentJson.push(item.title.rendered)
+              cardContentJson.push("<div class='" + item.acf.types.slug + "'>" + item.title.rendered + "</div>")
             }); //each          
           } //success
       }); //ajax  
