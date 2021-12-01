@@ -119,7 +119,7 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
 
 
 //fetch cards
-const url = 'http://multisitetwo.local/cyber/wp-json/wp/v2/card?per_page=99'
+const url = 'https://cards.alplearn.com/wp-json/wp/v2/card?per_page=99'
 const holder = document.getElementById('data')
 var cardContentJson = [];
  $(document).ready(function() {

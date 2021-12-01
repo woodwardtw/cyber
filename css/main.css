@@ -38,9 +38,7 @@ h1 {
 }
 
 .cs-icon{
- 
-/*  background-color: var(--blue);
-*/  background-image: url('../imgs/cyber-security.svg');
+  background-image: url('../imgs/cyber-security.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center left;
@@ -107,19 +105,24 @@ button.card-deck {
   border: var(--blue) 1px solid;
   color: var(--blue);
   font-size: 3em;
+  font-weight: 100;
   width: 300px;
   height: 200px;
   margin: 20px auto;
   border-radius: 0;
   display: block;
   z-index: 100;
+  background-image: url('../imgs/cyber-security.svg');
+  background-size: 40px 40px;
+  background-position: 125px 30px;  
+  background-repeat: no-repeat;
   position: absolute;
   transform: rotateZ(-2deg);
     -moz-transform: rotateZ(-2deg);
     -webkit-transform: rotateZ(-2deg);
     outline: 3px solid var(--light-blue);
     outline-offset: -10px;
-  transition: all .5s ease;
+  transition: background-color .5s ease, transform .5s ease;
 }
 
 button.card-deck:hover {
@@ -242,4 +245,11 @@ button.card-deck:hover {
 
 .trigger {
   background-color: limegreen;
+}
+
+@media only screen and (max-width: 700px) {
+  .container-fluid{
+    padding: 30px;
+  }
+
 }
