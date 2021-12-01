@@ -5,8 +5,11 @@
 
 :root {
   --blue: #011347; /*#00313c  1, 19, 71*/
-  --light-blue: #f0f8ff; /*#00afd7 rgb(240, 248, 255)*/
+  --light-blue: #E2F1FF; /*#00afd7 rgb(240, 248, 255)*/
   --gray: #efefef;
+  --yellow: #F0AE00;
+  --bright-blue: #005AC6;
+  --blueish: #0C2E8B;
 }
 
 body {
@@ -30,7 +33,8 @@ h1 {
   font-size: 3em;
   font-weight: 700;
   display: block;
-  line-height: .5;
+  line-height: 1.2;
+  background-color: #fff;
 }
 
 .cs-icon{
@@ -43,7 +47,7 @@ h1 {
 
 }
 
-.container {
+.container-fluid {
   background-color: #fff;
   border-bottom-right-radius: 40px;
   padding:  100px;
@@ -97,6 +101,96 @@ button {
   color: #fff;
   border: none;
 }
+
+button.card-deck {
+  background-color: #fff;
+  border: var(--blue) 1px solid;
+  color: var(--blue);
+  font-size: 3em;
+  width: 300px;
+  height: 200px;
+  margin: 20px auto;
+  border-radius: 0;
+  display: block;
+  z-index: 100;
+  position: absolute;
+  transform: rotateZ(-2deg);
+    -moz-transform: rotateZ(-2deg);
+    -webkit-transform: rotateZ(-2deg);
+    outline: 3px solid var(--light-blue);
+    outline-offset: -10px;
+  transition: all .5s ease;
+}
+
+button.card-deck:hover {
+  /* box-shadow: var(--bright-blue) -3px 3px, 
+              var(--yellow) -7px 7px, 
+              var(--gray) -11px 11px, 
+              var(--blueish) -15px 15px,               
+              var(--bright-blue) -20px 20px; */
+  background-color: var(--light-blue);
+  outline: 3px solid var(--blue);
+  transform: rotateZ(2deg);
+  -moz-transform: rotateZ(2deg);
+  -webkit-transform: rotateZ(2deg);
+} 
+
+.card-holder {
+  position: relative;
+  margin: 30px auto;
+  width: 300px;
+  height: 200px;
+}
+
+.blank-card {
+  width: 300px;
+  height: 200px;
+  border: 1px solid var(--blue);
+  box-shadow: 1px 1px 7px rgba(0,0,0,.25);
+  position: absolute;
+  top: 0; 
+  background-color: #fff;
+  outline: 3px solid var(--light-blue);
+    outline-offset: -10px;
+}
+
+.one {
+    transform: rotateZ(-2deg);
+    -moz-transform: rotateZ(-2deg);
+    -webkit-transform: rotateZ(-2deg);
+}
+
+.two {
+  transform: rotateZ(3deg);
+    -moz-transform: rotateZ(3deg);
+    -webkit-transform: rotateZ(3deg);
+}
+
+.three {
+  transform: rotateZ(-4deg);
+    -moz-transform: rotateZ(-4deg);
+    -webkit-transform: rotateZ(-4deg);
+}
+
+.four {
+  transform: rotateZ(5deg);
+    -moz-transform: rotateZ(5deg);
+    -webkit-transform: rotateZ(5deg);
+}
+
+.five {
+  transform: rotateZ(-5deg);
+    -moz-transform: rotateZ(-5deg);
+    -webkit-transform: rotateZ(-5deg);
+}
+
+.six {
+  transform: rotateZ(7deg);
+    -moz-transform: rotateZ(7deg);
+    -webkit-transform: rotateZ(7deg);
+}
+
+
 
 .btn-cs {
   padding: 5px 15px;

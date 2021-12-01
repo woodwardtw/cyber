@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
     	<!--header-->
         <div class="row cs-icon">
         	<div class="col-md-2">
         	</div>
         	<div class="col-md-10">
             	<h1>Cybersecurity Leadership Game</h1>
-                <div class="tagline">Building Leadership Capacity, One Game at a Time!</div>
+                <div class="tagline">Building Cybersecurity Leadership Capacity, One Game at a Time!</div>
             </div>
         </div>
         <!--end header-->
@@ -58,9 +58,17 @@
                     <!--end timer-->
                     <!--die trigger-->
                     <div class="col-md-12 roller-area">
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleCard">
-                            Roll the die
-                        </button>
+                        <div class="card-holder">
+                            <button class="card-deck" type="button" data-bs-toggle="modal" data-bs-target="#exampleCard">
+                                Draw a Card
+                            </button>
+                            <div class="blank-card one"></div>
+                            <div class="blank-card two"></div>
+                            <div class="blank-card three"></div>
+                            <div class="blank-card four"></div>
+                            <div class="blank-card five"></div>
+                            <div class="blank-card six"></div>
+                        </div>
                     </div>
                     <!--end die trigger-->                 
                 </div>
@@ -73,20 +81,20 @@
                     Set Game Details
                 </button>
             </div>
-            <div class="col-md-12 collapse" id="chooser-panel">
-                <div class="chooser" id="parameters">
-                    <strong>Framework:</strong>
-                    <div>
-                        <input type="checkbox" id="nist" name="framework" value="nist">
-                        <label for="coding">NIST</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="tle" name="framework" value="tle">
-                        <label for="tle">TLE</label>
-                    </div>
-                </div>
+            <div class="col-md-12 collapse" id="chooser-panel">               
                 <div class="chooser" id="topics">
                     <strong>Topics:</strong>
+                    <div>
+                        <input type="checkbox" id="ici" name="framework" value="nist">
+                        <label for="coding">Implement Communication of Incidents/Breaches</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="ipir" name="framework" value="tle">
+                        <label for="tle">Implement Privacy Incident Response</label>
+                    </div>
+                </div>
+                <div class="chooser" id="level">
+                    <strong>Levels:</strong>
                     <div>
                         <input type="checkbox" id="ici" name="framework" value="nist">
                         <label for="coding">Implement Communication of Incidents/Breaches</label>

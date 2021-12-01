@@ -119,7 +119,7 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
 
 
 //fetch cards
-const url = 'http://multisitetwo.local/cyber/wp-json/wp/v2/card?per_page=100'
+const url = 'http://multisitetwo.local/cyber/wp-json/wp/v2/card?per_page=99'
 const holder = document.getElementById('data')
 var cardContentJson = [];
  $(document).ready(function() {
@@ -132,7 +132,6 @@ var cardContentJson = [];
             $.each(data, function(index, item) {
               console.log(item)
               console.log(item.acf.types.name)
-
               cardContentJson.push("<div class='" + item.acf.types.slug + "'>" + item.title.rendered + "</div>")
             }); //each          
           } //success
