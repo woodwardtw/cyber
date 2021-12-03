@@ -13,31 +13,31 @@
 
 <body>
     <div class="container-fluid">
+           <!--nav-->
+        <nav>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul id="top-menu">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Sponsors</a></li>
+                        <li><a href="#">Something Else</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid game">     
     	<!--header-->
         <div class="row cs-icon">
         	<div class="col-md-2">
+                <img class="cyber-badge" src="imgs/cyber-security.svg">
         	</div>
-        	<div class="col-md-10">
+        	<div class="col-md-7">
             	<h1>Cybersecurity Leadership Game</h1>
                 <div class="tagline">Building Cybersecurity Leadership Capacity, One Game at a Time!</div>
             </div>
-        </div>
-        <!--end header-->
-        <div class="row">
-        	<!--players-->
-            <div class="col-md-5 player-col">
-                <h2>Team</h2>
-                <button id="add-player">add teammate</button>
-                <ol id="players">
-                </ol>
-            </div>
-            <!--end players-->
-            <!--timer-->
-            <div class="col-md-7">
-                <div class="row">
-                    <div class="col-md-12">
-                    	<!--timer display-->
-                        <div class="timer-holder">
+            <div class="col-md-3 timer-div">
+                <div class="timer-holder">
                             <div id="time-display">00:00</div>
                             <!--timer chooser-->
                             <label for="time">Choose game length:</label>
@@ -52,12 +52,28 @@
                                 <option value="12">12</option>
                             </select>
                             <!--end timer chooser-->
-                            <button id='timer-start'>Start</button>
+                            <div class="timer-controls">
+                                <button class="timer-buttons" id='timer-start' aria-label="Start Timer.">▶</button>
+                                <button class="timer-buttons" id='timer-pause' aria-label='Pause timer.'>||</button>
+                            </div>
                         </div>
-                    </div>
-                    <!--end timer-->
-                    <!--die trigger-->
-                    <div class="col-md-12 roller-area">
+            </div>
+        </div>
+        <!--end header-->
+        <div class="row main-game">
+        	<!--players-->
+            <div class="col-md-5 player-col">
+                <h2>Add Your Team</h2>
+                <p>Use the area below if you'd like to keep score.</p>
+                <button id="add-player">Add Teammate</button>
+                <ol id="players">
+                </ol>
+            </div>
+            <!--end players-->
+            <!--timer-->
+            <div class="col-md-7">
+                <div class="row">                    
+                                        <div class="col-md-12 roller-area">
                         <div class="card-holder">
                             <button class="card-deck" type="button" data-bs-toggle="modal" data-bs-target="#exampleCard">
                                 Draw a Card
@@ -77,7 +93,7 @@
         <div class="row main-content">
     	   <!--game details-->
             <div class="col-md-4 offset-md-4">
-                <button class="btn-cs" type="button" data-bs-toggle="collapse" data-bs-target="#chooser-panel" aria-expanded="false" aria-controls="chooser-panel">
+                <button class="btn-cs details" type="button" data-bs-toggle="collapse" data-bs-target="#chooser-panel" aria-expanded="false" aria-controls="chooser-panel">
                     Set Game Details
                 </button>
             </div>
@@ -127,6 +143,7 @@
     </div>
     <!--leaving the land of modals-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/timer.jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>

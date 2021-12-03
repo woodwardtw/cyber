@@ -1,7 +1,7 @@
 /*@import url('https://fonts.googleapis.com/css2?family='Red Hat Display'&display=swap');
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap');
 
 :root {
   --blue: #011347; /*#00313c  1, 19, 71*/
@@ -13,13 +13,31 @@
 }
 
 body {
-  margin-top: 30px;
+  margin-top: 10px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
- /* background: center url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(240, 248, 255)' viewBox='0 0 100 169.5'%3E%3Cpolygon points='50,34.75 93.5,59.75 93.5,109.75 50,134.75 6.5,109.75 6.5,59.75'%3E%3C/polygon%3E%3Cpolygon points='0,-50 43.5,-25 43.5,25 0,50 -43.5,25 -43.5,-25'%3E%3C/polygon%3E%3Cpolygon points='100,-50 143.5,-25 143.5,25 100,50 56.5,25 56.5,-25'%3E%3C/polygon%3E%3Cpolygon points='0,119.5 43.5,144.5 43.5,194.5 0,219.5 -43.5,194.5 -43.5,144.5'%3E%3C/polygon%3E%3Cpolygon points='100,119.5 143.5,144.5 143.5,194.5 100,219.5 56.5,194.5 56.5,144.5'%3E%3C/polygon%3E%3C/svg%3E");
-  background-size: 56px;*/
+  /*background: center url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(240, 248, 255)' viewBox='0 0 100 169.5'%3E%3Cpolygon points='50,34.75 93.5,59.75 93.5,109.75 50,134.75 6.5,109.75 6.5,59.75'%3E%3C/polygon%3E%3Cpolygon points='0,-50 43.5,-25 43.5,25 0,50 -43.5,25 -43.5,-25'%3E%3C/polygon%3E%3Cpolygon points='100,-50 143.5,-25 143.5,25 100,50 56.5,25 56.5,-25'%3E%3C/polygon%3E%3Cpolygon points='0,119.5 43.5,144.5 43.5,194.5 0,219.5 -43.5,194.5 -43.5,144.5'%3E%3C/polygon%3E%3Cpolygon points='100,119.5 143.5,144.5 143.5,194.5 100,219.5 56.5,194.5 56.5,144.5'%3E%3C/polygon%3E%3C/svg%3E");
+  background-size: 2px;*/
   background-color: var(--blue);
- background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23efefef' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+/* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23efefef' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+*/}
+
+#top-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+  padding-right: 20px;
+}
+
+nav a {
+  color:  #fff;
+  font-size: 1.2em;
+  font-weight: 800;
+  margin-left:  30px;
 }
 
 
@@ -29,7 +47,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  margin: 40px 0;
+  margin: 40px 0 10px 0;
   font-size: 3em;
   font-weight: 700;
   display: block;
@@ -37,19 +55,20 @@ h1 {
   background-color: #fff;
 }
 
-.cs-icon{
-  background-image: url('../imgs/cyber-security.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center left;
+.cyber-badge{
+  width: 100%;
+  height: auto;
 
 }
 
-.container-fluid {
+.main-game {
+  margin-top: 50px;
+}
+
+.game {
   background-color: #fff;
-  border-bottom-right-radius: 40px;
-  padding:  100px;
-  box-shadow: 5px 5px var(--blue);
+  border-bottom-right-radius: 70px;
+  padding: 0 ;
 }
 
 .score {
@@ -59,10 +78,11 @@ h1 {
 }
 
 .player-col {
-  border-top:  3px solid var(--blue);
+  border-top:  3px solid var(--yellow);
   background-color: #efefef;
   margin-top:  30px;
-  padding: 20px 10px;
+  padding: 30px 60px;
+  border-bottom-right-radius:  70px;
 }
 
 .player {
@@ -98,6 +118,9 @@ button {
   background-color: var(--blue);
   color: #fff;
   border: none;
+  font-weight: 700;
+  padding:  10px 20px;
+  width: 170px;
 }
 
 button.card-deck {
@@ -106,21 +129,21 @@ button.card-deck {
   color: var(--blue);
   font-size: 3em;
   font-weight: 100;
-  width: 300px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   margin: 20px auto;
   border-radius: 0;
   display: block;
   z-index: 100;
   background-image: url('../imgs/cyber-security.svg');
-  background-size: 40px 40px;
-  background-position: 125px 30px;  
+  background-size: 50px 50px;
+  background-position: 50% 30px;  
   background-repeat: no-repeat;
   position: absolute;
   transform: rotateZ(-2deg);
     -moz-transform: rotateZ(-2deg);
     -webkit-transform: rotateZ(-2deg);
-    outline: 3px solid var(--light-blue);
+    outline: 3px solid var(--yellow);
     outline-offset: -10px;
   transition: background-color .5s ease, transform .5s ease;
 }
@@ -131,8 +154,8 @@ button.card-deck:hover {
               var(--gray) -11px 11px, 
               var(--blueish) -15px 15px,               
               var(--bright-blue) -20px 20px; */
-  background-color: var(--light-blue);
-  outline: 3px solid var(--blue);
+/*  background-color: var(--light-blue);
+*/  outline: 3px solid var(--blue);
   transform: rotateZ(2deg);
   -moz-transform: rotateZ(2deg);
   -webkit-transform: rotateZ(2deg);
@@ -141,13 +164,13 @@ button.card-deck:hover {
 .card-holder {
   position: relative;
   margin: 30px auto;
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 250px;
 }
 
 .blank-card {
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 250px;
   border: 1px solid var(--blue);
   box-shadow: 1px 1px 7px rgba(0,0,0,.25);
   position: absolute;
@@ -204,11 +227,12 @@ button.card-deck:hover {
   padding: 5px 10px;
 }
 
-.player button {
+.player button, .timer-buttons {
   height: 30px;
   width: 30px;
   margin: 0 5px 0 0;
   text-align: center;
+  padding:  0;
 }
 
 #players {
@@ -219,37 +243,130 @@ button.card-deck:hover {
 }
 
 #chooser-panel {
-  background-color: var(--gray);
+  background-color: var(--light-blue);
   padding: 30px 40px;
 }
 
+.timer-div{
+  background-color: var(--light-blue);
+  border-bottom-left-radius: 70px;
+  padding-top: 40px;
+  text-align: center;
+}
+
 #time-display {
-  font-size: 2em;
-  font-family: 'orbitron', sans-serif;
+  font-size: 2.5em;
+  text-align: left;
+  margin-left: 30%;
+}
+
+.timer-buttons {
+  display: inline-block; 
 }
 
 /*modal*/
 .modal-body {
   font-size:  2.5em;
-  border:  2px solid #efefef;
   margin:  0  20px;
+  line-height: 1.2;
+}
+
+.modal-card {
+  padding: 60px 40px;
+  background: linear-gradient(to right, var(--light-blue) 6px, transparent 6px) 0 0, linear-gradient(to right, var(--light-blue) 6px, transparent 6px) 0 100%, linear-gradient(to left, var(--light-blue) 6px, transparent 6px) 100% 0, linear-gradient(to left, var(--light-blue) 6px, transparent 6px) 100% 100%, linear-gradient(to bottom, var(--light-blue) 6px, transparent 6px) 0 0, linear-gradient(to bottom, var(--light-blue) 6px, transparent 6px) 100% 0, linear-gradient(to top, var(--light-blue) 6px, transparent 6px) 0 100%, linear-gradient(to top, var(--light-blue) 6px, transparent 6px
+) 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
 }
 
 .modal-header, .modal-footer {
   border: none;
 }
 
-.leadership {
-  background: orange;
+.trigger::before, .leadership::before, .skills::before, .team::before, .discussion::before, .question::before, .facilitator::before {
+
+}
+
+.trigger::after, .leadership::after, .skills::after, .team::after, .discussion::after, .question::after, .facilitator::after {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #efefef;
+  font-size: .35em;
+  font-style: italic;
+  width: 400px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 10px;
 }
 
 .trigger {
-  background-color: limegreen;
+  border: 2px solid var(--blue);
+}
+
+.trigger::after{
+  content: 'Share your response with the rest of the team.';
+}
+
+.leadership {
+  border: 2px solid var(--light-blue);
+}
+
+.leadership::after {
+  content: 'Share your response with the rest of the team.';
+}
+
+
+.skills {
+  border: 2px solid var(--yellow);
+}
+
+.skills::after {
+  content: 'Ask the facilitator to explain the cybersecurity objective & answer the question.';
+}
+
+.team {
+  border: 2px solid var(--bright-blue);
+}
+
+.team::after {
+  content: 'Discuss as a team. Select a player to report back.';
+}
+
+.discussion {
+  border:  2px solid var(--yellow);
+}
+
+.discussion::after {
+  content: 'The facilitator will ask one player to discuss the topic.';
+}
+
+.question, .facilitator {
+  border:  2px solid var(--bright-blue);
+}
+
+.facilitator::after, .question::after {
+  content: 'Ask the facilitator to explain the cybersecurity objective & answer the question.';
+}
+
+.details {
+  margin: 80px auto 50px auto;
+  display: block;
 }
 
 @media only screen and (max-width: 700px) {
   .container-fluid{
     padding: 30px;
   }
+  .card-holder {
+    width: 300px;
+    height: 200px;
+  }
 
+.blank-card {
+  width: 300px;
+  height: 200px;
 }

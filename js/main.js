@@ -72,48 +72,51 @@ document.getElementById("players").addEventListener("click", function(e) {
 });
 
 
-var duration;
-var display;
-//revist timer https://stackoverflow.com/questions/16134997/how-to-pause-and-resume-a-javascript-timer
-function startTimer(duration, display, state) {
-			    let timer = duration, minutes, seconds;
-			    setInterval(function () {
-			        minutes = parseInt(timer / 60, 10);
-			        seconds = parseInt(timer % 60, 10);
-
-			        minutes = minutes < 10 ? "0" + minutes : minutes;
-			        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-			        display.textContent = minutes + ":" + seconds;
-
-			        if (--timer < 0) {
-			            timer = 0;
-			        }
-			    }, 1000);
-			    
-			}
-
-			let timerButton = document.getElementById('timer-start');
+let timerButton = document.getElementById('timer-start');
 		
-			  timerButton.addEventListener('click', () => {
-			    const destination = document.getElementById('time-display');
-			    duration = parseInt(document.getElementById('time').value)*60;
-          startTimer(duration, destination, 'running');
-			});
+timerButton.addEventListener('click', () => {
+  if($('#time-display').data('state')=='paused'){
+    $("#time-display").timer('resume');
+    return;
+  }
+  if($('#time-display').data('state')=='running'){
+      $("#time-display").timer('remove')
+    }
+    $("#time-display").timer({
+      countdown: true,
+      format: '%M:%S',
+      duration:  parseInt(document.getElementById('time').value)+'m',   
+      callback: function() {
+        alert('Time is up!');
+      }
+    });  
+  
+});
+
+let timerPauseButton = document.getElementById('timer-pause');
+    
+timerPauseButton.addEventListener('click', () => { 
+  console.log('clicket')
+    console.log($('#time-display').timer('pause'));
+    console.log('foo')
+})
+
+
+
 
 
 //MODAL
 
 //http://multisitetwo.local/cyber/wp-json/wp/v2/card
 //http://multisitetwo.local/cyber/wp-json/wp/v2/framework/
-var exampleModal = document.getElementById('exampleCard')
-exampleModal.addEventListener('show.bs.modal', function (event) {
-  // Button that triggered the modal
-  var button = event.relatedTarget
-  
-  var modalBodyInput = exampleModal.querySelector('.modal-body')
 
-  modalBodyInput.innerHTML = cardContentJson[Math.floor(Math.random()*cardContentJson.length)];
+//draw a card
+let exampleModal = document.getElementById('exampleCard')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  let button = event.relatedTarget;
+  let modalBodyInput = exampleModal.querySelector('.modal-body');
+  modalBodyInput.innerHTML = cardContentJson[Math.floor(Math.random()*cardContentJson.length)+1]; //Math.floor(Math.random() * 10) + 1
+  console.log(Math.floor(Math.random()*cardContentJson.length)+1);
 })    
 
 
@@ -130,9 +133,12 @@ var cardContentJson = [];
         dataType: 'json',
         success: function(data) {         
             $.each(data, function(index, item) {
-              console.log(item)
-              console.log(item.acf.types.name)
-              cardContentJson.push("<div class='" + item.acf.types.slug + "'>" + item.title.rendered + "</div>")
+               console.log(item)
+               let postId = item.id;
+               let slug = item.acf.types.slug;
+               let title = item.title.rendered;
+              // console.log(item.acf.types.name)
+              cardContentJson.push(`<div data-post-id="${postId}" class="${slug} modal-card">${title}</div>`)
             }); //each          
           } //success
       }); //ajax  
