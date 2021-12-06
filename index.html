@@ -17,6 +17,9 @@
         <nav>
             <div class="row">
                 <div class="col-md-12">
+                    <div class="cosn-logo-holder">
+                        <img src="imgs/cosn-dark@2x.png" class="header-logo" alt="COSN logo.">
+                    </div>
                     <ul id="top-menu">
                         <li><a href="#">About</a></li>
                         <li><a href="#">Sponsors</a></li>
@@ -30,8 +33,8 @@
     	<!--header-->
         <div class="row cs-icon">
         	<div class="col-md-2">
-                <img class="cyber-badge" src="imgs/cyber-security.svg">
-        	</div>
+                <img class="cyber-badge" src="imgs/cyber-security.svg" alt="A lock with a circuit pattern around it.">
+            </div>
         	<div class="col-md-7 title-block">
             	<h1>Cybersecurity Leadership Game</h1>
                 <div class="tagline">Building Cybersecurity Leadership Capacity, One Game at a Time!</div>
@@ -106,29 +109,50 @@
                     Set Game Details
                 </button>
             </div>
-            <div class="col-md-12 collapse" id="chooser-panel">               
-                <div class="chooser" id="topics">
-                    <strong>Topics:</strong>
-                    <div>
-                        <input type="checkbox" id="ici" name="framework" value="nist">
-                        <label for="coding">Implement Communication of Incidents/Breaches</label>
+            <div class="col-md-12 collapse" id="chooser-panel"> 
+                <div class="chooser-info">              
+                    <div class="chooser" id="level">
+                        <!--values double because we're looking for taxonomic ID not the slug/name.-->
+                        <h2>Discussion Maturity Level</h2>
+                        <p>We all start someplace. Get the questions your organization needs by limited the complexity below. Level 1 indicates an organization just beginning these conversations.</p>
+                        <div id="level-checkboxes">
+                            <div>
+                                <input type="checkbox" id="done" name="maturity" value="2">
+                                <label for="done" aria-label="Maturity level 1 for cards.">1</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="dtwo" name="maturity" value="4">
+                                <label for="dtwo">2</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="dthree" name="maturity" value="6">
+                                <label for="dthree">3</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="dfour" name="maturity" value="8">
+                                <label for="dfour">4</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="dfive" name="maturity" value="10">
+                                <label for="dfive">5</label>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox" id="ipir" name="framework" value="tle">
-                        <label for="tle">Implement Privacy Incident Response</label>
+                    <div class="chooser" id="topics">
+                        <h2>Topics</h2>
+                        <p>Want to have a particular conversation? Here's where you can narrow down the questions to the areas you want to address. </p>
+                        <div>
+                            <input type="checkbox" id="ici" name="framework" value="nist">
+                            <label for="ici">Implement Communication of Incidents/Breaches</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="ipir" name="framework" value="tle">
+                            <label for="ipir">Implement Privacy Incident Response</label>
+                        </div>
                     </div>
                 </div>
-                <div class="chooser" id="level">
-                    <strong>Levels:</strong>
-                    <div>
-                        <input type="checkbox" id="ici" name="framework" value="nist">
-                        <label for="coding">Implement Communication of Incidents/Breaches</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="ipir" name="framework" value="tle">
-                        <label for="tle">Implement Privacy Incident Response</label>
-                    </div>
-                </div>
+                <button id="redeal">Apply the Restrictions</button>
+
             </div>
         </div>
 </div>
@@ -144,9 +168,9 @@
                 <div class="modal-body">
                     What can you do today to improve your school system's cybersecurity posture?
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
+                <div class="modal-footer">                    
+<!--                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+ -->            </div>
             </div>
         </div>
     </div>

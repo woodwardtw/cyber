@@ -1,5 +1,5 @@
 let addPlayer = document.getElementById('add-player')
-addPlayer.addEventListener('click', newPlayer)
+addPlayer.addEventListener('click', newPlayer);
 
 function newPlayer(){
   let list = document.getElementById('players')
@@ -22,11 +22,8 @@ function scoreUp(){
   let plusButtons = document.querySelectorAll('.plus')
   plusButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      console.log(button.parentNode)
       let scoreBox = button.parentNode.querySelector('.score')
-      console.log(scoreBox)
       let score = parseInt(scoreBox.textContent)
-      console.log('og=' + score)
       let newScore = score+1
       scoreBox.textContent = newScore
     });
@@ -38,7 +35,6 @@ function scoreDown(){
   minusButtons.forEach((button) => {
   button.addEventListener('click', () => {
     let score = button.parentNode.querySelector('.score')
-    console.log(score.innerHTML)
     score.innerHTML = parseInt(score.innerHTML)-1
   });
 });
@@ -59,7 +55,6 @@ document.getElementById("players").addEventListener("click", function(e) {
 	if(e.target && e.target.matches("button")) {
 		// List item found!  Output the ID!
      let scoreBox = e.target.parentNode.querySelector('.score')
-      console.log(e.target.parentNode.querySelector('.score'))
       let score = parseInt(scoreBox.textContent)
       // console.log('og=' + score)
       if(e.target.matches("button.plus")){
@@ -96,28 +91,22 @@ timerButton.addEventListener('click', () => {
 let timerPauseButton = document.getElementById('timer-pause');
     
 timerPauseButton.addEventListener('click', () => { 
-  console.log('clicket')
-    console.log($('#time-display').timer('pause'));
-    console.log('foo')
+ $('#time-display').timer('pause');
 })
 
-
+//expand scroll to
+$(".collapse").on("shown.bs.collapse", function(){
+    var current = $(this);
+    $([document.documentElement, document.body]).animate(
+        {scrollTop: current.offset().top},
+        100
+    );
+});
 
 
 
 //MODAL
 
-//http://multisitetwo.local/cyber/wp-json/wp/v2/card
-//http://multisitetwo.local/cyber/wp-json/wp/v2/framework/
-
-//draw a card
-let exampleModal = document.getElementById('exampleCard')
-exampleModal.addEventListener('show.bs.modal', function (event) {
-  let button = event.relatedTarget;
-  let modalBodyInput = exampleModal.querySelector('.modal-body');
-  modalBodyInput.innerHTML = cardContentJson[Math.floor(Math.random()*cardContentJson.length)+1]; //Math.floor(Math.random() * 10) + 1
-  console.log(Math.floor(Math.random()*cardContentJson.length)+1);
-})    
 
 
 
@@ -133,14 +122,81 @@ var cardContentJson = [];
         dataType: 'json',
         success: function(data) {         
             $.each(data, function(index, item) {
-               console.log(item)
+               // console.log(item)
                let postId = item.id;
                let slug = item.acf.types.slug;
                let title = item.title.rendered;
               // console.log(item.acf.types.name)
-              cardContentJson.push(`<div data-post-id="${postId}" class="${slug} modal-card">${title}</div>`)
+              cardContentJson.push(`<div data-post-id="${postId}" class="${slug} modal-card">${title}</div>
+                <a class="learn-more" target="_blank" href="resources.html?id=${postId}">Learn More</a>`)
             }); //each          
           } //success
       }); //ajax  
-      console.log(cardContentJson)
+       console.log(cardContentJson)
     }); //ready
+
+
+let resuffleButton = document.getElementById('redeal');  
+resuffleButton.addEventListener('click', () => { 
+    resuffleCards(cardContentJson);
+})
+
+
+function resuffleCards(cardContentJson){
+  console.log(cardContentJson);
+  let levels = getLevels();
+  const url = 'https://cards.alplearn.com/wp-json/wp/v2/card?per_page=99'+ levels;
+  console.log(url);
+  const holder = document.getElementById('data')
+   $(document).ready(function() {
+        var def = new jQuery.Deferred();
+        $.ajax({
+          url: url,
+          jsonp: "cb",
+          dataType: 'json',
+          success: function(data) {         
+              $.each(data, function(index, item) {
+                 console.log(item)
+                 let postId = item.id;
+                 let slug = item.acf.types.slug;
+                 let title = item.title.rendered;
+                // console.log(item.acf.types.name)
+                cardContentJson.push(`<div data-post-id="${postId}" class="${slug} modal-card">${title}</div>
+                  <a class="learn-more" target="_blank" href="resources.html?id=${postId}">Learn More</a>`)
+              }); //each          
+            } //success
+        }); //ajax  
+
+      }); //ready
+        console.log('after')
+        console.log(cardContentJson)
+ }
+
+ function getLevels(){
+  const checkboxes = document.querySelector('#level-checkboxes');
+  const inputs = checkboxes.querySelectorAll('input');
+  let selectedLevels = [];
+  inputs.forEach((input) => {
+    if(input.checked == true){
+        selectedLevels.push(input.value)
+    }
+  });
+
+  if (selectedLevels.length >0){
+       return '&level=' + selectedLevels.join()
+  } else {
+    return;
+  }
+}
+
+
+ //draw a card
+let exampleModal = document.getElementById('exampleCard')
+exampleModal.addEventListener('show.bs.modal', function (event) {
+  let button = event.relatedTarget;
+  let modalBodyInput = exampleModal.querySelector('.modal-body');
+  modalBodyInput.innerHTML = cardContentJson[Math.floor(Math.random()*cardContentJson.length)+1]; //Math.floor(Math.random() * 10) + 1
+  console.log(Math.floor(Math.random()*cardContentJson.length)+1);
+  console.log(cardContentJson)
+})    
+
