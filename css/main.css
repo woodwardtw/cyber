@@ -48,6 +48,10 @@ body {
   border-bottom-right-radius: 70px;
 }
 
+.cosn-logo-holder a{
+  margin-left: 0;
+}
+
 .header-logo {
   width: 120px;
 }
@@ -174,7 +178,7 @@ button.card-deck {
     -webkit-transform: rotateZ(-2deg);
     outline: 3px solid var(--yellow);
     outline-offset: -10px;
-  transition: background-color .5s ease, transform .5s ease;
+  transition: transform .5s ease;
 }
 
 button.card-deck:hover, button.card-deck:focus {
@@ -300,6 +304,11 @@ button.card-deck:hover, button.card-deck:focus {
   display: inline-block; 
 }
 
+.timer-buttons img {
+  width: 12px;
+  height:  12px;
+  margin-bottom: 4px;
+}
 /*modal*/
 .modal-body {
   font-size:  2.5em;

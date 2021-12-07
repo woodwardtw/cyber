@@ -1,3 +1,7 @@
+/*
+******score stuff
+*/
+
 let addPlayer = document.getElementById('add-player')
 addPlayer.addEventListener('click', newPlayer);
 
@@ -67,6 +71,11 @@ document.getElementById("players").addEventListener("click", function(e) {
 });
 
 
+/*
+******time stuff
+*/
+
+
 let timerButton = document.getElementById('timer-start');
 		
 timerButton.addEventListener('click', () => {
@@ -107,15 +116,22 @@ $(".collapse").on("shown.bs.collapse", function(){
 
 //MODAL
 
-
-
-
-//fetch cards
-const url = 'https://cards.alplearn.com/wp-json/wp/v2/card?per_page=99'
+//fetch all cards
 const holder = document.getElementById('data')
 var cardContentJson = [];
  $(document).ready(function() {
-      var def = new jQuery.Deferred();
+     getCards(cardContentJson, '');
+  }); //ready
+
+
+let resuffleButton = document.getElementById('redeal');  
+resuffleButton.addEventListener('click', () => { 
+    resuffleCards(cardContentJson);
+})
+
+function getCards(cardContentJson, levels){
+  const url = 'https://cards.alplearn.com/wp-json/wp/v2/card?per_page=99'+levels
+   var def = new jQuery.Deferred();
       $.ajax({
         url: url,
         jsonp: "cb",
@@ -132,18 +148,15 @@ var cardContentJson = [];
             }); //each          
           } //success
       }); //ajax  
-       console.log(cardContentJson)
-    }); //ready
-
-
-let resuffleButton = document.getElementById('redeal');  
-resuffleButton.addEventListener('click', () => { 
-    resuffleCards(cardContentJson);
-})
+        exampleModal.addEventListener('show.bs.modal', function (event) {
+        cardShuffle(cardContentJson);
+      }) 
+}
 
 
 function resuffleCards(cardContentJson){
-  console.log(cardContentJson);
+  cardContentJson = [];
+  //console.log(cardContentJson);
   let levels = getLevels();
   const url = 'https://cards.alplearn.com/wp-json/wp/v2/card?per_page=99'+ levels;
   console.log(url);
@@ -156,7 +169,6 @@ function resuffleCards(cardContentJson){
           dataType: 'json',
           success: function(data) {         
               $.each(data, function(index, item) {
-                 console.log(item)
                  let postId = item.id;
                  let slug = item.acf.types.slug;
                  let title = item.title.rendered;
@@ -168,8 +180,9 @@ function resuffleCards(cardContentJson){
         }); //ajax  
 
       }); //ready
-        console.log('after')
-        console.log(cardContentJson)
+        exampleModal.addEventListener('show.bs.modal', function (event) {
+          cardShuffle(cardContentJson);
+        }) 
  }
 
  function getLevels(){
@@ -190,13 +203,16 @@ function resuffleCards(cardContentJson){
 }
 
 
- //draw a card
+ //draw a random card
 let exampleModal = document.getElementById('exampleCard')
-exampleModal.addEventListener('show.bs.modal', function (event) {
+   
+
+function cardShuffle(cardContentJson){
   let button = event.relatedTarget;
   let modalBodyInput = exampleModal.querySelector('.modal-body');
-  modalBodyInput.innerHTML = cardContentJson[Math.floor(Math.random()*cardContentJson.length)+1]; //Math.floor(Math.random() * 10) + 1
-  console.log(Math.floor(Math.random()*cardContentJson.length)+1);
-  console.log(cardContentJson)
-})    
+  let randomCard = Math.floor(Math.random()*cardContentJson.length);
+  modalBodyInput.innerHTML = cardContentJson[randomCard]; //Math.floor(Math.random() * 10) + 1
+  // console.log(Math.floor(Math.random()*cardContentJson.length)+1);
+  // console.log(cardContentJson)
+}
 
