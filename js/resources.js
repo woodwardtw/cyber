@@ -20,7 +20,7 @@ var cardContentJson = [];
                let postId = data.id;
                let slug = data.acf.types.slug;
                let question = data.title.rendered;
-               let plainText = data.acf.card_text;
+             
                if(data.acf.resources){
                     var resource = data.acf.resources;
                } else {
@@ -35,10 +35,10 @@ var cardContentJson = [];
               // console.log(item.acf.types.name)
              // cardContentJson.push(`<div data-post-id="${postId}" class="${slug} modal-card">${title}</div>`)
             const emailLink = document.querySelector('#email-me')
-            emailLink.href = `mailto:?subject=COSN's%20Cybersecurity%20Question&body=${plainText}%0D%0A%0D%0Afrom%20${thisUrl}`
+            emailLink.href = `mailto:?subject=COSN's%20Cybersecurity%20Question&body=${question}%0D%0A%0D%0Afrom%20${thisUrl}`
 
             const tweetLink = document.querySelector('#tweet-me')
-            tweetLink.href = `https://twitter.com/intent/tweet?text=${plainText} ${thisUrl}&hashtags=cosn%2CDell%2Ccybersecurity`;       
+            tweetLink.href = `https://twitter.com/intent/tweet?text=${question} ${thisUrl}&hashtags=cosn%2CDell%2Ccybersecurity`;       
           } //success
            
       }); //ajax  

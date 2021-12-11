@@ -292,8 +292,8 @@ button.card-deck:hover, button.card-deck:focus {
 
 #time-display {
   font-size: 2.5em;
-  text-align: left;
-  margin-left: 30%;
+  text-align: center;
+  margin:  0 auto;
 }
 
 .timer-controls {

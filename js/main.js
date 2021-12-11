@@ -158,7 +158,8 @@ function resuffleCards(cardContentJson){
   cardContentJson = [];
   //console.log(cardContentJson);
   let levels = getLevels();
-  const url = 'https://cards.alplearn.com/wp-json/wp/v2/card?per_page=99'+ levels;
+  let objectives = getObjectives();
+  const url = 'https://cards.alplearn.com/wp-json/wp/v2/card?per_page=99'+ levels + objectives;
   console.log(url);
   const holder = document.getElementById('data')
    $(document).ready(function() {
@@ -198,9 +199,27 @@ function resuffleCards(cardContentJson){
   if (selectedLevels.length >0){
        return '&level=' + selectedLevels.join()
   } else {
-    return;
+    return '';
   }
 }
+
+function getObjectives(){
+  const checkboxes = document.querySelector('#objective-checkboxes');
+  const inputs = checkboxes.querySelectorAll('input');
+  let selectedObjectives = [];
+  inputs.forEach((input) => {
+    if(input.checked == true){
+        selectedObjectives.push(input.value)
+    }
+  });
+
+  if (selectedObjectives.length >0){
+       return '&objective=' + selectedObjectives.join()
+  } else {
+    return '';
+  }
+}
+
 
 
  //draw a random card
@@ -216,3 +235,51 @@ function cardShuffle(cardContentJson){
   // console.log(cardContentJson)
 }
 
+
+//MAKE THE TOPICS/OBJECTIVES CHECKBOXES 
+//remember that this is currently referencing a static json file we'd need to save a new copy of from 
+//https://cards.alplearn.com/wp-json/wp/v2/objective?per_page=99
+
+function buildTopics(){
+  cardContentJson = [];
+  const url = 'js/objective.json';
+  console.log(url);
+  const holder = document.getElementById('data')
+   $(document).ready(function() {
+        var def = new jQuery.Deferred();
+        $.ajax({
+          url: url,
+          jsonp: "cb",
+          dataType: 'json',
+          success: function(data) {         
+              $.each(data, function(index, item) {
+                if(item.count>0){
+                    console.log(item)
+                    makeTopicSelector(item)
+                }
+              }); //each          
+            } //success
+        }); //ajax  
+      }); //ready       
+ }
+
+
+function makeTopicSelector(item){
+  const topicHolder = document.querySelector('#objective-checkboxes');
+  console.log(topicHolder)
+  let topicNow = topicHolder.innerHTML;
+  let objectiveId = item.id;
+  let objectiveSlug = item.slug;
+  let objectiveName = item.name;
+  let choiceMaker = 
+  `<div>
+        <input type="checkbox" id="${objectiveSlug}" name="objective" value="${objectiveId}">
+        <label for="${objectiveSlug}">${objectiveName}</label>
+    </div>`;
+  topicHolder.innerHTML = topicNow + choiceMaker;
+  return topicNow;
+
+}
+                       
+
+buildTopics();
