@@ -242,7 +242,7 @@ function cardShuffle(cardContentJson){
 
 function buildTopics(){
   cardContentJson = [];
-  const url = 'js/objective.json';
+  const url = 'https://cards.alplearn.com/wp-json/wp/v2/objective?per_page=99'; //js/objective.json';
   console.log(url);
   const holder = document.getElementById('data')
    $(document).ready(function() {
